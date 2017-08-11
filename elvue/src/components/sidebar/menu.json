@@ -1,0 +1,28 @@
+{
+  "menus": [
+    {
+      "icon": "el-icon-setting",
+      "index": "menu",
+      "title": "自述"
+    },
+    {
+      "icon": "el-icon-menu",
+      "index": "2",
+      "title": "表格",
+      "subs": [
+        {
+          "index": "menu2",
+          "title": "基础表格"
+        },
+        {
+          "index": "menu3",
+          "title": "Vue表格组件"
+        },
+        {
+          "index": "http://www.baidu.com",
+          "title": "baidu"
+        }
+      ]
+    }
+  ]
+}

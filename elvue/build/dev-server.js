@@ -21,6 +21,33 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+var appData = require('../goods.json')
+var goods = appData
+var apiRouters = express.Router()
+apiRouters.get('/goods', function (req, res) {
+  res.json(goods)
+})
+
+apiRouters.get('/login', function (req, res) {
+  if (req.query.username === 'admin' && req.query.password === '123456') {
+    // 登入成功
+    res.json({
+      'status': '1',
+      'result': {
+        username: 'admin'
+      }
+    })
+  } else {
+    // 登入失败
+    res.json({
+      'status': '0',
+      'msg': '用户名或密码不正确'
+    })
+  }
+
+})
+app.use('/api', apiRouters)
+
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {

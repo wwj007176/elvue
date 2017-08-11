@@ -43,7 +43,6 @@ exports.cssLoaders = function (options) {
       return ['vue-style-loader'].concat(loaders)
     }
   }
-
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
   return {
     css: generateLoaders(),
@@ -53,6 +52,7 @@ exports.cssLoaders = function (options) {
     scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
+    // i18n: '@kazupon/vue-i18n-loader'
   }
 }
 
