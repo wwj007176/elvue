@@ -39,7 +39,7 @@ export default Vue => {
        * @param {Boolean} isLoading 加载状态
        */
       getHttpData (url, callback, error, isLoading) {
-        isLoading = isLoading || true
+        isLoading = (isLoading === undefined || isLoading === null) ? true : isLoading
         this.$store.commit(MType.UPDATE_LOADING, isLoading)
         callback = callback || function () {}
         this.$http.get(url).then(response => {
@@ -68,7 +68,7 @@ export default Vue => {
       },
       postHttpData (url, params, header, callback, error, isLoading) {
         header = header || null
-        isLoading = isLoading || true
+        isLoading = (isLoading === undefined || isLoading === null) ? true : isLoading
         this.$store.commit(MType.UPDATE_LOADING, isLoading)
         let qs = require('qs')
         params = params || {}
@@ -96,7 +96,7 @@ export default Vue => {
         })
       },
       uploadHttpData (url, params, header, callback, error, isLoading) {
-        isLoading = isLoading || true
+        isLoading = (isLoading === undefined || isLoading === null) ? true : isLoading
         header = header || {'Content-Type': 'multipart/form-data'}
         params = params || new FormData()
         this.$store.commit(MType.UPDATE_LOADING, isLoading)

@@ -23,6 +23,12 @@ export default new Router({
       component: resolve => require(['@/views/home.vue'], resolve),
       children: [
         {
+          path: '/',
+          name: 'menu',
+          meta: {isLogin: true, title: '菜单1'},
+          component: resolve => require(['@/views/menu.vue'], resolve)
+        },
+        {
           path: '/menu',
           name: 'menu',
           meta: {isLogin: true, title: '菜单1'},
